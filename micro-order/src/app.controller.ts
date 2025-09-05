@@ -7,7 +7,7 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @MessagePattern('get_order')
-  getOrder(): { order: string } {
-    return this.appService.getOrder();
+  getOrder(orderNumber: string) {
+    return this.appService.getOrder(orderNumber);
   }
 }

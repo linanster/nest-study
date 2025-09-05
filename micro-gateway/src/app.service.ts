@@ -7,6 +7,6 @@ export class AppService {
   constructor(@Inject('ORDER_SERVICE') private client: ClientProxy) {}
 
   getOrder(): Observable<any> {
-    return this.client.send('get_order', {});
+    return this.client.send('get_order', 'pos1234');
   }
 }
