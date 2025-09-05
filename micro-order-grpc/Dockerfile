@@ -10,5 +10,5 @@ RUN tar xf package.tgz
 
 # EXPOSE 8080
 
-WORKDIR /app/micro-order
+WORKDIR /app/micro-order-grpc
 CMD [ "npm", "run", "start:prod" ]
