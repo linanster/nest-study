@@ -3,28 +3,17 @@ syntax = "proto3";
 package orderPackage;
 
 service OrderService {
-  rpc GetOrder (GetOrderRequest) returns (GetOrderResponse);
-  rpc SubmitOrder (SubmitOrderRequest) returns (SubmitOrderResponse);
+  rpc Execute (UniversalRequest) returns (UniversalResponse);
 }
 
-message GetOrderRequest {
-  string orderNumber = 1;
+message UniversalRequest {
+  string action = 1;           // 方法名称: "GetOrder", "SubmitOrder"
+  string payload = 2;          // JSON格式的参数
+  map<string, string> metadata = 3;  // 可选的元数据
 }
 
-message GetOrderResponse {
-  string orderNumber = 1;
-  int32 price = 2;
-  string hostName = 3;
-}
-
-message SubmitOrderRequest {
-  string ean = 1;
-  int32 quatity = 2;
-}
-
-message SubmitOrderResponse {
-  string orderNumber = 1;
-  string ean = 2;
-  int32 quatity = 3;
-  string hostName = 4;
+message UniversalResponse {
+  int32 status = 1;            // 状态码: 0=成功, 非0=错误
+  string data = 2;             // JSON格式的返回数据
+  string error = 3;            // 错误信息
 }
