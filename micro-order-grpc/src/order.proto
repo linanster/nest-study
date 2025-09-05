@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package orderService;
+package orderPackage;
 
 service OrderService {
   rpc GetOrder (GetOrderRequest) returns (GetOrderResponse);
