@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package orderService;
+
+service OrderService {
+  rpc GetOrder (GetOrderRequest) returns (GetOrderResponse);
+}
+
+message GetOrderRequest {
+  string orderNumber = 1;
+}
+
+message GetOrderResponse {
+  string orderNumber = 1;
+  int32 price = 2;
+  string hostName = 3;
+}
