@@ -10,4 +10,5 @@ RUN tar xf package.tgz
 
 # EXPOSE 8080
 
+WORKDIR /app/micro-gateway
 CMD [ "npm", "run", "start:prod" ]
