@@ -10,8 +10,12 @@ export class AppController {
   getHealth(): string {
     return 'OK';
   }
-  @Get('order')
+  @Get('getOrder')
   getOrder(): object {
     return this.appService.getOrder();
+  }
+  @Get('submitOrder')
+  submitOrder(): object {
+    return this.appService.submitOrder();
   }
 }

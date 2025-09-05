@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 interface OrderServiceInterface {
   getOrder(data: { orderNumber: string }): Observable<any>;
+  submitOrder(data: { ean: string; quatity: number }): Observable<any>;
 }
 
 @Injectable()
@@ -13,10 +14,15 @@ export class AppService implements OnModuleInit {
   constructor(@Inject('ORDER_SERVICE') private orderClient: ClientGrpc) {}
 
   onModuleInit() {
-    this.orderService = this.orderClient.getService<OrderServiceInterface>('OrderService');
+    this.orderService =
+      this.orderClient.getService<OrderServiceInterface>('OrderService');
   }
 
   getOrder(): Observable<any> {
     return this.orderService.getOrder({ orderNumber: 'pos1234' });
+  }
+
+  submitOrder(): Observable<any> {
+    return this.orderService.submitOrder({ ean: 'roger_pro', quatity: 2 });
   }
 }

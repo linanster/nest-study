@@ -10,4 +10,9 @@ export class AppController {
   getOrder(data: { orderNumber: string }) {
     return this.appService.getOrder(data.orderNumber);
   }
+
+  @GrpcMethod('OrderService', 'SubmitOrder')
+  submitOrder(data: { ean: string; quatity: number }) {
+    return this.appService.submitOrder(data.ean, data.quatity);
+  }
 }
