@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { Observable } from 'rxjs';
+// ...existing code...
 import { AppService } from './app.service';
 
 @Controller()
@@ -7,7 +7,7 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get('order')
-  getOrder(): Observable<any> {
+  getOrder(): object {
     return this.appService.getOrder();
   }
 }

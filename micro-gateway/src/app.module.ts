@@ -10,8 +10,8 @@ import { AppService } from './app.service';
         name: 'ORDER_SERVICE',
         transport: Transport.TCP,
         options: {
-          host: 'localhost',
-          port: 3001,
+          host: process.env.MICROSERVICE_ORDER_HOST,
+          port: Number(process.env.MICROSERVICE_ORDER_PORT),
         },
       },
     ]),

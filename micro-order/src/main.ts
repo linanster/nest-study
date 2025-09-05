@@ -8,12 +8,12 @@ async function bootstrap() {
     {
       transport: Transport.TCP,
       options: {
-        host: 'localhost',
-        port: 3001,
+        host: '0.0.0.0',
+        port: 8082,
       },
     },
   );
   await app.listen();
-  console.log('Order microservice is listening on TCP port 3001');
+  console.log('Order microservice is listening on TCP port 0.0.0.0:8082');
 }
 bootstrap().catch((err) => console.error(err));
